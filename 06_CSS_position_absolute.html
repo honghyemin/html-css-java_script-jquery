@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+         div {
+            width: 200px; height: 200px;
+            border : 2px solid black;
+            position: absolute; /*relative와의 차이점? 브라우저 상단(절대위치) vs 화면에 표시되던 원래 위치(상대위치)*/
+        }
+        #div1{
+            background-color: red;
+            top : -50px;
+            left : 50px;
+        }
+        #div2{
+            background-color: green;
+            left : 200px; /*기준이 브라우저 좌측기준으로 오른쪽으로 200px이동했다.*/
+            top : 200px;
+        }
+        #div3{
+            background-color: blue;
+            right : 200px; /*브라우저 우측에서 20px만큼*/
+            bottom : 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h3>CSS position: absolute</h3>
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <div id="div3">div3</div>
+   
+</body>
+</html>
