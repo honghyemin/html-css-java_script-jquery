@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+         div {
+            width: 200px; height: 200px;
+            border : 2px solid black;
+            position: relative; /*전체 영역을 다 차지하면서 순차적으로 나옴*/
+        }
+        #div1{
+            background-color: red;
+            left: -100px; /* 원래 위치에서 좌측으로 100px 이동(양수값을 주면 우측으로 이동)*/
+        }
+        #div2{
+            background-color: green;
+            left: 103px;
+        }
+        #div3{
+            background-color: blue;
+            left: 200px;
+            top : -100px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h3>CSS position: relative</h3>
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <div id="div3">div3</div>
+   
+</body>
+</html>
