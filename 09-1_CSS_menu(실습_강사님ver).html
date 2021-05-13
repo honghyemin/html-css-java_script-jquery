@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 메뉴만들기 (실습)</title>
+    <style>
+        /*스타일 작성해서 메뉴만들기 */
+    nav ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /*밑에 딸려왔던 것들이 원위치 됨.*/
+        background-color: rgb(37, 37, 37);
+    }
+    nav li {
+        /*리스트를 옆으로 나란히 */
+        float: left;
+        border-right: 2px solid #999;
+    }
+    nav a{
+        text-decoration: none;
+        display : block; /*패딩을 상하좌우 다 주기 위하여*/
+        padding: 20px 20px;
+        font-size : 1.5em;
+        color: wheat;
+    }
+    nav .active, nav a.active:hover{ /*nav a.active에 hover되었을 때도 red 유지 */
+        background-color: red;
+    }
+    nav a:hover {
+        background-color: rgb(112, 110, 110);
+    }
+    nav li:last-child{
+        float: right;
+        border-left: 2px solid #999;
+        border-right : none;
+    }
+
+    
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a class="active" href="#home">HOME</a></li>
+            <li><a href="#news">NEWS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <li id="about"><a  href="#about">ABOUT</a></li>
+        </ul>
+    </nav>
+    <div>
+        <li a href="#">사과</li>
+        <li a href="#">배</li>
+        <li a href="#">복숭아</li>
+    </div>
+    
+   
+</body>
+</html>
