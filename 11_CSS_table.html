@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #page {
+            width: 80%;
+            margin : auto; /*페이지 내에서 균등 배분*/
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse; /*나눠진 선?박스?를 하나로 합쳐줌?*/
+            caption-side: bottom; /*캡션을 아래로*/
+        }
+        th, td {
+            border : 2px solid gray;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        tr > th:first-child{
+            width: 15%;
+        }
+        tr > th:nth-child(2){
+            width: 30%;
+        }
+        tr > th:nth-child(3){
+            width: 20%;
+        }
+        /* 배경색 지정 */
+        /* #tbl > tr { ===> 테이블과 자녀태그(tr)사이에 기본적으로 tbody가 들어가므로 이렇게 쓸 경우 적용되지 않음
+            background-color: yellow;
+        } */
+        /* #tbl >tbody> tr {   ===> 이렇게 사용하거나 또는 아래처럼 사용해야함
+            background-color: rgb(209, 209, 128);
+        } */
+
+        #tbl tr:first-child, #tbl tr:first-child:hover { /*첫번째 자녀만 적용, 첫번째 칸에 hover되었을때 색 그대로 유지*/
+            background-color: rgb(143, 209, 143);
+        }
+        #tbl tr:nth-child(even) { /*짝수번째에만 적용 (2n으로 사용할 경우 n에 0부터 대입됨)*/
+            background-color: #ccc;
+        }
+
+        #tbl tr:hover {
+            background-color: rgb(241, 53, 94);
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="page">
+        <h1>CSS table</h1>
+        <table id="tbl">
+            <caption>테이블의 캡션</caption>
+            <tr>
+                <th>th 1열</th>
+                <th>th 2열</th>
+                <th>th 3열</th>
+                <th>th 4열</th>
+            </tr>
+            <tr>
+                <td>2,1</td>
+                <td>2,2</td>
+                <td>2,3</td>
+                <td>2,4</td>
+            </tr>
+            <tr>
+                <td>3,1</td>
+                <td>3,2</td>
+                <td>3,3</td>
+                <td>3,4</td>
+            </tr>
+            <tr>
+                <td>4,1</td>
+                <td>4,2</td>
+                <td>4,3</td>
+                <td>4,4</td>
+            </tr>
+            <tr>
+                <td>5,1</td>
+                <td>5,2</td>
+                <td>5,3</td>
+                <td>5,4</td>
+            </tr>
+
+
+        </table>
+
+    </div>
+   
+</body>
+</html>
