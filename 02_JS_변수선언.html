@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS 변수선언</title>
+<script>
+    // 변수 선언 시 사용되는 키워드(명령어) : var, let, const
+    // 변수명 사용문자 : 영문대소문자, 숫자, _, $
+    // 기본 자료형 : 문자열(string), 숫자(number), 불린(boolean)
+    var str = "안녕하세요(문자열)";
+    var num = 100;
+    var bool = true;
+    var vNull = null;
+    var undef; // 값 할당이 안된 상태
+    document.write("문자열 출력 : " + str, "<br>");
+    document.write("숫자값 출력 : " + num, "<br>");
+    document.write("숫자값 출력 : " + num + 1, "<br>"); /*101이 아니라 1001이 된다. */
+    document.write("숫자값 출력 : " + (num+1), "<br>"); /*숫자 연산을 하기 위해서는 괄호로 묶어주어야 함.*/
+    document.write("bool 출력 : " + bool, "<br>");
+    document.write("null 출력 : " + vNull, "<br>");
+    document.write("undef 출력 : " + undef, "<br>");
+    document.write("<hr>");
+
+    // 변수 타입 확인 : typeof
+    document.write("typeof str : " + typeof str, "<br>"); // string
+    document.write("typeof str : " + typeof num, "<br>");
+    document.write("typeof str : " + typeof bool, "<br>");
+    document.write("typeof str : " + typeof vNull, "<br>");
+    document.write("typeof str : " + typeof undef, "<br>");
+    document.write("<hr>");
+ 
+    // 변수에 고정된 타입의 개념이 없음
+    str = 500; // 변수타입 변경됨 : number <- string
+    str = str + 200;
+    document.write("typeof str : " + str + ", " + typeof str, "<br>");
+
+    str = true;
+    document.write("typeof str : " + str + ", " + typeof str, "<br>");
+ 
+    var sum = num + str; // 100 + true --> 결과 : 101
+    document.write("합계(num + str(100 + true)) : " + sum, "<br>"); // 오류가 나는 것이 아니라 연산처리가 됨 (true=1)
+
+    sum = num + false; // 100 + false --> 결과 : 100
+    document.write("합계(num + str(100 + false)) : " + sum, "<br>"); // false = 0
+    document.write("<hr>");
+
+    // ------------------------------------------
+    // 변수의 반복선언이 허용됨(var)
+    var sum = 0; // 변수 중복선언 및 사용이 가능(var) -> 중복선언을 하게되면 이전에 선언되었던 값들은 무효화됨.
+
+    sum = sum + 10;
+    document.write("sum : " + sum, "<br>");
+    document.write("<hr>");
+
+    //-------------------------------------------
+    // NaN(Not A Number) : 숫자가 아님 - 연산결과가 숫자가 아닌 경우
+    document.write("num + undef : " + (num + undef), "<br>"); // 결과 : NaN
+    document.write("num * 'A' : " + (num * 'A'), "<br>"); // 결과 : NaN
+    document.write(" 'A' * 'B' : " + ('A' * 'B'), "<br>"); // 결과 : NaN
+
+    // 자바스크립트에서 오류가 발생하면 이후의 스크립트는 실행 안됨
+    document.write("자바스크립트 작성 끝", "<br>");
+    document.write("<p>---------- JavaScript 끝 -----------<p>");
+
+</script>
+</head>
+<body>
+    <h1>자바스크립트의 변수 선언</h1>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
