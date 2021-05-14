@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS 연산자</title>
+<script>
+    // 증감연산자 : ++, --
+    var num = 100;
+    document.write("num : " + num, "<br>");
+
+    //++num; => 단독으로 사용할 때는 앞에 쓰나 뒤에 쓰나 동일 => num + 1;
+    var res = ++num; // 대입연산자가 사용이 되면 앞에 쓰이는 것과 뒤에 쓰이는 것이 다르다.
+                     // 이 식은 num값을 1증가시키고 res에 저장
+    document.write("res = ++num : " + res, "<br>");
+    document.write("num : " + num, "<br>");
+    document.write("<hr>");
+
+    num = 100;
+    document.write("num : " + num, "<br>");
+    res = num ++;
+    document.write("res = num++ : " + res, "<br>");
+    document.write("num : " + num, "<br>");
+    document.write("<hr>");
+
+    // --------------------------------------
+    // 부정연산자 : !(not)
+    document.write("true : " + true, "<br>");
+    document.write("!true : " + !true, "<br>");
+    document.write("!false : " + !false, "<br>");
+    document.write("<hr>");
+
+    // --------------------------------------
+    // 산술연산자 : +, -, *, /, %(나머지연산)
+    var num1 = 100;
+    var num2 = 3;
+    document.write("num1 : " + num1, ", num2 : " + num2, "<br>");
+    document.write("num1 + num2 : " + (num1+num2), "<br>");
+    document.write("num1 - num2 : " + (num1-num2), "<br>");
+    document.write("num1 * num2 : " + (num1*num2), "<br>");
+    document.write("num1 / num2 : " + (num1/num2), "<br>"); // JAVA의 경우는 int타입만 출력되어 33의 결과값이 나오지만 여기서는 33.3333.....
+    document.write("num1 % num2 : " + (num1%num2), "<br>");
+    document.write("<hr>");
+
+    // --------------------------------------
+    // 문자열(숫자형태) - 타입자체는 문자열이지만 그 안에 숫자만 있음 ==> 숫자타입으로 변환
+    var str = "100"; // 문자열(string)
+    str = str + 1; // 문자열 붙이기 연산 처리가 된다. ==> 결과 : 1001
+    document.write("str : " + str + " - " + typeof str + "타입", "<br>");
+
+    str = "100";
+    // 문자열을 숫자타입으로 바꾸자!
+    // 방법 1) 숫자형태 문자열에 곱하기 1 연산 : 형변환 ((권장타입은 아님) 
+    str = (str * 1) + 100; 
+    document.write("str : " + str + " - " + typeof str + "타입", "<br>");
+
+    // 방법 2-1) 함수를 사용하여 형변환
+    str = Number(str) + 100; // Number() 메소드(함수)이용
+    document.write("str : " + str + " - " + typeof str + "타입", "<br>");
+
+    // 방법 2-2)
+    str = parseInt(str) + 200; // parseInt() 메소드(함수)이용
+    document.write("str : " + str + " - " + typeof str + "타입", "<br>");
+    document.write("<hr>");
+
+    // --------------------------------------
+    // 대입연산자(복합) : =, +=, -=, *=, /=, %=
+    num = 100;
+    num2 = 3;
+    document.write("num : " + num + ", num2 : " + num2, "<br>");
+
+    var result = num;
+    document.write("result : " + result, "<br>");
+
+    result += num2;
+    document.write("result +=  num2 : " + result, "<br>");
+
+    result -= num2;
+    document.write("result-=  num2 : " + result, "<br>");
+
+    result *= num2;
+    document.write("result *=  num2 : " + result, "<br>");
+
+    result /= num2;
+    document.write("result /=  num2 : " + result, "<br>");
+
+    result %= num2;
+    document.write("result %=  num2 : " + result, "<br>");
+    document.write("<hr>");
+
+    // --------------------------------------
+    // 비교연산자 : >, <, >=, <=, ==, !=, ===, !==
+    // == : 값(value) 만 일치 => true (!= : 값이 다르면 => true)
+    // === : 값 일치하고(AND) 타입이 동일한 경우 => true
+    // !== : 값 불일치 또는 (OR) 타입이 다를 경우 => true
+    document.write('100 == 100 : ' + (100 == 100), "<br>");
+    document.write('100 == "100" : ' + (100 == "100"), "<br>");
+    document.write('100 != 100 : ' + (100 != 100), "<br>");
+    document.write('100 != "100" : ' + (100 != "100"), "<br>");
+    
+    document.write("______  ===, !== 비교  _______", "<br>");
+    document.write('100 === 100 : ' + (100 === 100), "<br>");
+    document.write('100 === "100" : ' + (100 === "100"), "<br>");
+    document.write('100 !== 100 : ' + (100 !== 100), "<br>");
+    document.write('100 !== "100" : ' + (100 !== "100"), "<br>");
+
+
+
+
+</script>
+</head>
+<body>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
