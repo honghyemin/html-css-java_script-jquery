@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>var, let, const</title>
+<script>
+    // var : 변수 사용 범위 function 레벨
+    // let, const : 변수 사용범위 { } 기준
+    // const : 상수화된 변수(자바에서 final 선언과 유사)
+
+    // var변수 : 변수선언문 이전에도 사용 가능하고 중복 선언도 가능
+    document.write("변수 선언문 이전 varNum : " + varNum, "<br>");
+    var varNum = 100;
+    var varNum = 200; // 중복선언 허용(단, 의도적으로 사용하지 말 것)
+    document.write("변수 선언문 이후 varNum : " + varNum, "<br>");
+    document.write("<hr>");
+
+    //===================================
+    // ECMAScript6에서 추가된 변수 선언문 : let, const
+    // let, const : 변수 선언문 이후에만 사용 가능, 중복선언 안됨
+    //document.write("let 변수 선언 전 : " + letNum, "<br>");
+    let letNum=100;
+    //let letNum=999;
+    document.write("let 변수 선언 후 : " + letNum, "<br>");
+    document.write("<hr>");
+
+    //====================================
+    //const CONST_VAR; // 오류 발생 - Uncaught SyntaxError: Missing initializer in const declaration
+
+    const CONST_VAR = "const 변수는 처음 한 번만 값 설정 가능";
+    document.write("const CONST_VAR : " + CONST_VAR, "<br>");
+
+    // 오류 발생 = Uncaught TypeError : Assignment to constant variable.
+    // CONST_VAR = "const변수 값 재할당";
+
+    document.write("==============JS 끝");
+
+
+ 
+</script>
+</head>
+<body>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
