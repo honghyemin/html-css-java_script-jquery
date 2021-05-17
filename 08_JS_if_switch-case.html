@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>if, switch-case</title>
+<script>
+    //if (조건식) {}
+    //if (조건식) {} else {}
+    //if (조건식) {} else if() {} else if() {} else {}
+    if (true) {
+        document.write("if문이 true인 경우 출력", "<br>");
+    }
+    let bool = confirm("true 출력<확인> 선택, false 출력<취소>선택")
+    if(bool) {
+        document.write("확인 선택 - true", "<br>");
+    } else {
+        document.write("취소 선택 - false", "<br>");
+    }
+    document.write("<hr>");
+    //==========================================
+    /* (실습) 점수를 입력받고 점수에 따라 평가하고 결과를 화면에 출력(표시)
+    90이상 : A, 80이상:B, 70이상:C, 70미만: D
+    출력형태 : 점수90점 - 평가결과 : A
+     //if (조건식) {} else if() {} else if() {} else {} 
+     ***************************************/
+    //중복코드가 있으면 수정해야 할 상황이 있을 때 변경해야 하는 사항이 많아짐.
+    // 평가 결과를 변수로 선언해서 변수로 사용.
+
+    let score = prompt("점수를 입력하세요(0~100).", 0);
+    document.write("입력값: -" + score + "-, 타입 : " + typeof score, "<br>");
+    document.write("isNaN(score) : " + isNaN(score), "<br>");
+    let result="평가안됨";
+    // 숫자인지 아닌지 확인하기 : isNaN
+    if(isNaN(score)) { // 숫자가 아닌 것
+        result="숫자가 아님(NaN)";
+
+    } else if(score <= 0 || score >=100) {
+        result="정상범위(0~100) 아님"
+    } else if(score>=90){
+        //document.write("점수 : " + score + "점, 평가결과 : A", "<br>");
+        result="A"
+    } else if(score>=80) {
+        result="B"
+    } else if(score>=70) {
+        result="C"
+    } else if(score>=0) {
+        result="D"
+    } else {
+        result ="[입력오류] 0~100까지의 숫자 입력";
+    }
+    document.write("점수 : " + score + ", 평가 결과 : " + result, "<br>");
+    document.write("<hr>");
+
+    // -------------------------------------
+
+    let divScore = Math.floor(score/10); // 88/10 -> 8.8 -> 8
+    switch(divScore) {
+        case 10 : 
+            // result = "A";
+            // break;
+        case 9 : 
+            result = "A";
+            break;
+        case 8 :
+            result = "B";
+            break;
+        case 7 : 
+            result = "C";
+            break;
+        default :
+            result = "D";
+            break;
+    }
+    document.write("점수 : " + score + ", 평가 결과 : " + result, "<br>");
+    document.write("<hr>");
+
+
+    //-------------------------------------------------
+    document.write("--------문자열 vs 숫자 ----------<br>");
+    document.write("'100'>'20' : " + ('100'>'20'), "<br>"); //false
+    document.write("100>20 : " + (100>20), "<br>"); // true
+    document.write("'100'>20 : " + ('100'>20), "<br>"); // true ('100'이 숫자로 형변환 됨)
+
+    document.write("---------문자열 vs 문자열--------<br>");
+    document.write("'100A'>'20' : " + ('100A'>'20'), "<br>"); // false ('100A'가 숫자로 형변환 되지 않음)
+    document.write("'A100'>'20' : " + ('A100'>'20'), "<br>"); // true
+    document.write("'AAA'>'20' : " + ('AAA'>'20'), "<br>"); // true
+    document.write("'100A'>'100B' : " + ('100A'>'100B'), "<br>"); // false
+    document.write("'100B'>'100A' : " + ('100B'>'100A'), "<br>"); // true
+
+    document.write("---------문자열(숫자아닌) vs 숫자-------<br>");
+    document.write("'100A'>20 : " + ('100A'>20), "<br>"); // false
+    document.write("'A100'>20 : " + ('A100'>20), "<br>"); // fasle
+    document.write("'AAA'>20 : " + ('AAA'>20), "<br>"); // false
+    document.write("<hr>");
+
+
+
+    document.write("----- 자바스크립트 끝 -----", "<br>");
+</script>
+</head>
+<body>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
