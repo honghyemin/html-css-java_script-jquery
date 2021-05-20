@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM 선택 id, class, tag명</title>
+<script>
+    /* DOM 객체 선택 시 사용할 메소드
+    document.getElementById('id명') : id 속성 요소 1개 리턴
+    document.getElementsByClassName('클래스명') : class 속성명에 해당 요소들 리턴(배열형태)
+    document.getElementsByTagName('태그명') : 태그(tag)명에 해당 요소들 리턴(배열형태)
+    document.querySelector("선택자"); : 선택자에 의해 선택된 첫번쨰 요소 리턴
+    document.querySelectorAll("선택자"); : 선택자에 의해 선택된 모든 요소 리턴(배열형태)
+    ************************************/
+   // HTML 태그 읽고 해석된 상태가 아니므로 DOM 객체 컨트롤 불가능
+   var title = document.getElementById('title');
+   console.log("title : "+ title);
+
+   // 브라우저 문서가 모두 로딩 완료되면 발생하는 이벤트 onload에 콜백함수 등록
+   window.onload = function(){
+       // document.getElementById('id명') : id 속성 요소 1개 리턴
+        var title = document.getElementById('title');
+        console.log("onload title : "+ title);
+
+        //document.getElementById('title').style.color = "red";
+        title.style.color = "ivory";
+        title.style.backgroundColor = "gray"; //CSS : background-color
+
+        //document.getElementsByClassName('클래스명') : class요소들 (배열형태 리턴)
+        var clFoodList = document.getElementsByClassName("foodList");
+        clFoodList[0].style.backgroundColor = "#66b3ff";
+        clFoodList[1].style.backgroundColor = "#00e6ac";
+
+        //document.getElementsByTagName('태그명') : 태그명으로찾기 (배열형태 리턴)
+        document.getElementsByTagName("h1")[0].style.color="#d775d7";
+
+        //===================================
+        //id명으로 요소 찾기
+        var div1 = document.getElementById("food_1");
+        div1.style.border = "2px solid black";
+        div1.style.backgroundColor = "#e39cad";
+
+        //-----------------------------------
+        // 태그명으로 찾기
+        var list = document.getElementsByTagName("li");
+        list[1].style.backgroundColor = "#e3bf9c";
+
+        // 체이닝 방식으로 연속 적용
+        var foodList = document.getElementById("food_1").getElementsByTagName("li")[1];
+        foodList.style.backgroundColor = "aqua";
+        foodList.style.color="red";
+
+        // ===================================
+        // document.querySelector("선택자"); : 선택자에 의해 선택된 첫번쨰 요소 리턴
+        var selOne = document.querySelector("div>h2");
+        selOne.style.backgroundColor = "orange";
+
+        // document.querySelectorAll("선택자"); : 선택자에 의해 선택된 모든 요소 리턴(배열형태)
+        var selAll = document.querySelectorAll("div > h2");
+        selAll[0].style.border = "3px solid red";
+        selAll[1].style.border = "3px solid red";
+
+        for(let i=0; i<selAll.length; i++) {
+            selAll[i].style.fontSize = "2em";
+        }
+
+
+   }
+
+    
+   
+</script>
+</head>
+<body>
+    <h1> 좋아하는 음식 </h1>
+    <h2> 한식, 양식 </h2>
+    <div id="food_1">
+        <h2 id="title">한식</h2>
+        <ol class="foodList">
+            <li>
+                <a href="#">김치</a>
+            </li>
+            <li>불고기</li>
+            <li>비빔밥</li>
+        </ol>
+    </div>
+    <div id="food_2">
+        <h2>양식</h2>
+        <ol class="foodList">
+            <li>돈가스</li>
+            <li>파스타</li>
+        </ol>
+    </div>
+    
+<script>
+    // HTML 태그 읽고 해석된 상태로 DOM 객체 컨트롤 가능
+    var title = document.getElementById('title');
+    console.log("body끝 title : "+ title);
+
+</script>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
