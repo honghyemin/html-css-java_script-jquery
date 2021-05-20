@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Array forEach</title>
+<script>
+    /* 배열Array forEach 메소드
+    배열.forEach(콜백함수)
+    배열.forEach(function(element, index, array){});
+    => 첫번째 파라미터(element) : 배열요소(필수), 배열에서 현재 처리되고 있는 데이터
+    => 두번째 파라미터(index) : 인덱스번호(선택사항)
+    => 세번째 파라미터(array) : 현재 다루고있는 배열 객체(선택사항)
+
+    ************************/
+    var arr = ["사당", "교대", "방배", "강남"];
+    document.write("arr : " + arr, "<br>");
+    //---------------------------------
+    // 배열값 사용하기(요소만 사용)
+    arr.forEach(function(element){ // 참조해서 출력했기 때문에 데이터가 변하지는 않음
+        document.write(element, "<br>");
+    });
+    document.write("arr : " + arr, "<br>");
+    document.write("<hr>");
+
+    // 배열요소 ( 인덱스 ) 와 인덱스 사용
+    document.write("원본 arr : " + arr, "<br>");
+    arr.forEach(function(element, index){
+        arr[index] = element + "역" 
+    })
+    document.write(">> forEach문 실행 후 arr : " + arr, "<br>");
+    document.write("<hr>");
+
+    // 배열.forEach(function(element, index, array){});
+    document.write("원본 arr : " + arr, "<br>");
+    arr.forEach(function(ele, idx, arrObj){
+        arrObj[idx] = ele + idx;
+    });
+    document.write(">> forEach문 실행 후 arr : " + arr, "<br>");
+    document.write("<hr><hr>");
+   
+
+    //==================================
+    function arrCallback(element, index, array) {
+        array[index] = index + "-" +element;
+    }
+    arr.forEach(arrCallback);
+    document.write(">> forEach문 실행 후 arr : " + arr, "<br>");
+    document.write("<hr><hr>");
+
+
+
+
+
+</script>
+</head>
+<body>
+    
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
