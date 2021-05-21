@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 form</title>
+<script>
+    // 헤드영역에 이벤트 처리를 하기 위해서는 window.onload를 작성해줘야 햠
+    // body 아래에서는 작성할필요 없음
+    window.onload = function(){
+        // 첫번째 폼요소 이벤트 처리(submit 클릭되면...)
+        document.frm1.onsubmit = submitFrm1; // 콜백함수 연결
+
+        // 두번째 폼요소 이벤트 처리(submit 클릭)
+        document.frm2.onsubmit = function(){
+           // alert(">> frm2 submit 클릭!");
+            let accept = document.getElementById("accept");
+            //alert("accept.checked : "  + accept.checked); // checkbox가 체크되어있으면 true, 아니면 false
+            if(accept.checked==false) { // 체크된 상태가 아니면
+                alert("약관 동의 해야합니다. \n약관에 체크해주세요!!!!!!!!!!!");
+                return false; // 서버쪽 전송 취소  
+            }
+        };
+
+        // [전체선택]에 대한 이벤트 처리
+        // 체크상태 : 과목1,2,3 모두 체크 처리
+        // 체크해제 : 과목1,2,3 모두 체크 해제처리
+        document.frm2.allCheck.onclick = function(){
+            // 이벤트 발생 콜백함수 this : 이벤트 발생 객체
+            console.log("allCheck.onclick 콜백함수 this : " + this.id);
+        
+            if(this.checked) {//체크박스가 체크된 상태이면 나머지 항목?들 다 체크처리
+                document.frm2.subject1.checked = true;
+                document.frm2.subject2.checked = true;
+                document.frm2.subject3.checked = true;
+            } else { // 체크박스가 체크되지 않은 상태
+                document.frm2.subject1.checked = false;
+                document.frm2.subject2.checked = false;
+                document.frm2.subject3.checked = false;
+
+            }
+        };
+
+
+
+    };
+    function submitFrm1(){
+        console.log(">> frm1 submit 클릭 !!!");
+        // pw1 -> pw2 설정
+        // let pw1 = document.getElementById("user_pw1");
+        let pw1 = document.frm1.pw1;
+        console.log("pw1 : " + pw1+ ", pw1.value : " + pw1.value);
+        let pw2 = document.frm1.pw2;
+        console.log("pw2 : " + pw2);
+
+        pw2.value = pw1.value;
+
+        return false; // 서버쪽 전송 취소
+    }
+</script>
+</head>
+<body>
+    <form name="frm1">
+        <fieldset>
+            <legend>폼요소1(비밀번호 확인)</legend>
+            <p>
+                <!-- 비밀번호1이라는 텍스트 클릭하면 포커스가 맞춰짐-->
+                <label for = "user_pw1">비밀번호1</label>
+                <input type = "password" name="pw1" id="user_pw1">
+            </p>
+            <p>
+                <label>확인된 비밀번호</label>
+                <input type = "text" name="pw2" id="user_pw1" value="1234">
+                <input type="submit" value="비밀번호 보기">
+            </p>
+        </fieldset>
+    </form>
+    <hr>
+
+    <form name="frm2">
+        <fieldset>
+            <legend>폼요소2(약관동의/선택)</legend>
+            <div id="terms" name="txt">
+                개인정보보호법에 따라 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 
+                개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 
+                동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+                개인정보보호법에 따라 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 
+                개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 
+                동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+            </div>
+            <p>
+                <input type="checkbox" name="accept" id="accept">
+                <label for="accept">약관에 동의합니다</label>
+            </p>
+            <p>
+                <input type="checkbox" name="allCheck" id="id_allCheck">
+                <label for="id_allCheck">전체선택</label>
+
+                <input type="checkbox" name="subject1" id="subject1">
+                <label for="subject1">과목1</label>
+                <input type="checkbox" name="subject2" id="subject2">
+                <label for="subject2">과목2</label>
+                <input type="checkbox" name="subject3" id="subject3">
+                <label for="subject3">과목3</label>
+            </p>
+            <p>
+                <input type="submit" value="등록">
+                <input type="reset" value="초기화">
+            </p>
+        </fieldset>
+
+    </form>
+    
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
