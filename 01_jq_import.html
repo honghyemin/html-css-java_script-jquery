@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- jQuery import 방식1(내가 가지고 있는 파일 사용) -->
+    <!-- <script src="js/jquery-3.6.0.min.js"></script> -->
+
+    <!-- jQuery import 방식2(CDN 방식 : 인터넷에서 제공하는 문서를 가져다가 사용)-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // JavaScript DOM 객체 다루기
+    window.onload = function(){
+        document.getElementById("id1").style.color="blue";
+    }
+    //----------------------------
+    // [ 제이쿼리(jQuery) 사용방식 3가지 ]
+    // 방식 1) jQquery(document).ready(function(){});
+    //         $(document).ready(function(){});
+    jQuery(document).ready(function(){
+        jQuery("#id1").css("background-color", "gray");
+    });
+    $(document).ready(function(){
+        $("#id1").css("border", "3px solid red");
+    });
+
+    //--------------------------------
+    // 방식 2) $().ready(function(){});
+    $().ready(function(){
+        $("#id1").css("background-color", "skyblue");
+    });
+
+    //--------------------------------
+    // 방식 3) $(function(){});
+    $(function(){
+        $("#id1").css("background-color", "aqua");
+    });
+   
+</script>
+</head>
+<body>
+    <h1 id="id1">제이쿼리(jQuery)</h1>
+
+<script>
+    // 제이쿼리 식(위에 jquery-3.6.0.(min).js가 임포트 되어있지 않으면 사용못함)
+    $("#id1").css("border", "2px solid black").css("padding", "10px");
+</script>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
