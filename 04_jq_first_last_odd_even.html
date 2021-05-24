@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>first, last, odd, even</title>
+     <!-- jQuery import 방식2(CDN 방식 : 인터넷에서 제공하는 문서를 가져다가 사용)-->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    li{margin : 5px;}
+
+    .c_red {color : red;}
+    .c_orange {color :orange;}
+    .c_silver {color:silver;}
+    .c_purple{color:purple;}
+    .c_green {color : green;}
+    .c_blue {color : blue;}
+
+    .bg_red{background-color: red;}
+    .bg_green{background-color: green;}
+    .bg_blue{background-color: skyblue;}
+
+    .sizeup{font-size: 1.5em;}
+</style>
+<script>
+    $(function(){ // : - 필터링해서 찾는다
+        // :first - 첫번째 요소 찾기
+        // $("ul>li").addClass("c_red");
+        // $("div:first").addClass("c_red");
+        // $("li:first").addClass("bg_green");
+
+        // // : last - 마지막 요소 찾기
+        // $("div:last").addClass("c_purple");
+
+        // : odd - 홀수요소 ( 0부터 시작 )
+        // : even - 짝수요소
+        // $("div:odd").addClass("bg_red");
+        // $("div:even").addClass("bg_blue");
+        // $("div:even").css("border","3px dashed black");
+        // $("div:even").css("width", "50%");
+
+        // // li 태그 홀수 요소 : 글자색 - 뻘겅
+        // $("li:odd").css("color", "#ff4d4d");
+
+        // // li 태그 짝수 요소 : 테두리선 - 2px 점선 검정
+        // $("li:even").css("border", "2px dotted black");
+
+        // //자녀태그, 자손태그
+        // $("ul>li").css("background-color", "aqua"); 
+
+        // $("body>ul>li").css("background-color","yellow");
+
+        // $("body>ul ul>li").css("font-size", "1.5em");
+        // $("body>ul ul>li").css("border", "2px solid blue");
+        
+        //==================================================
+        // 동일한 요소에 대해 다중 설정
+        // 방법1) 매번 객체를 찾아서 스타일 적용 - 객체 찾는 행위 매번 실행
+        // $("#txt").css("background-color", "yellow");
+        // $("#txt").css("font-size", "1.25em");
+        // $("#txt").css("border", "2px solid black");
+
+        // 객체를 한 번만 찾기 - 작업은 매번 진행
+        // let $txt = $("#txt"); // 제이쿼리를 저장한 변수임을 명시하기 위해 $붙이는 것이 좋음
+        // $txt.css("background-color", "yellow");
+        // $txt.css("font-size", "1.25em");
+        // $txt.css("border", "2px solid black");
+
+        //---------------------
+        
+        // 방법2) 체이닝 기법
+        $("#txt").css("background-color", "yellow")
+                 .css("font-size", "1.25em")
+                 .css("border", "2px solid black");
+
+        // 방법3) CSS값으로 전달 { key : value }
+        $("#txt").css({"background-color": "yellow",
+                        "font-size": "1.25em",
+                        "border": "2px solid black"});
+
+        $("#txt").css({backgroundColor : "orange",
+                       fontSize : "1.25em",
+                       border : "2px dotted black"});
+
+        //=====================================================
+
+    });
+
+    
+   
+</script>
+</head>
+<body>
+    <div class="red">
+        <h3>div-h3 영역 1</h3>
+    </div>
+    <div>div - 영역2</div>
+    <div>div - 영역3</div>
+    <div>div - 영역4</div>
+
+    <span id="txt">span 텍스트 영역</span>
+
+    <ul>
+        <li>Java</li>
+        <li>Servlet JSP</li>
+            <ul>
+                <li>Servlet</li>
+                <li>JSP
+                    <ul>
+                        <li>EL</li>
+                        <li>JSTL</li>
+                    </ul>
+                </li>
+
+            </ul>
+        <li>Spring</li>
+    
+    </ul>
+    <div>div 마지막 / body 직전</div>
+
+    
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
