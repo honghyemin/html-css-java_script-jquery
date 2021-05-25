@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>prepend, append, before, after</title>
+     <!-- jQuery import 방식2(CDN 방식 : 인터넷에서 제공하는 문서를 가져다가 사용)-->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        // prepend() : 자녀 태그 추가 - 맨 앞에
+        $("#myDiv").prepend("<p>(앞1)반갑습니다.(prepend)</p>");
+        $("#myDiv").prepend("<p>(앞2)반갑습니다.(prepend)</p>");
+
+        // append() : 자녀 태그 추가 - 맨 뒤에
+        $("#myDiv").append("<p>(뒤1)반갑습니다.(append)</p>");
+        $("#myDiv").append("<p>(뒤2)반갑습니다.(append)</p>");
+
+        //--------------------------------------
+        // before (), after() : 선택?한 id?class? 등의 전과 후에 태그를 추가
+        $("#myDiv").before("<p>1.반갑습니다.(before)</p>");
+        $("#myDiv").before("<p>2.반갑습니다.(before)</p>");
+
+        $("#myDiv").after("<p>1.반갑습니다.(after)</p>");
+        $("#myDiv").after("<p>2.반갑습니다.(after)</p>");
+
+        //--------------------------------------
+        // h2앞에 h1 태그 추가하고, 뒤쪽에 p태그 추가
+        $("h2").before("<h1>개발자 양성 과정(h1)</h1>");
+        $("h2").after("<p>(웹 프로그래밍 개발자 양성과정)</p>");
+
+        //--------------------------------------
+        // wrap() : 바깥쪽에 감싸는 태그 추가
+        $("h2").wrap("<em>");
+
+        
+        // <a>태그를 목록(li)으로 감싸고, ul에 넣기
+        $("a").wrap("<li>");
+        $("li:first").before("<ul id='menu'>");
+        $("#menu").html($("li"));
+
+
+
+    });
+    
+   
+</script>
+<style>
+    h2 {border : 2px solid rgb(255, 81, 0);}
+    #myDiv {border : 3px solid blue;}
+    ul {border : 2px solid violet;}
+    li {border : 1px solid gray;}
+
+
+</style>
+
+</head>
+<body>
+    <h2>Java Web 프로그래밍(h2)</h2>
+    <a href="#">Java</a>
+    <a href="#">JavaScript</a>
+    <a href="#">JSP</a>
+    <a href="#">Spring</a>
+    <hr>
+    <p class="myClass">1장~~~</p>
+    <div>내용....</div>
+
+    <p class="myClass">2장~~~</p>
+    <div>내용....</div>
+
+    <p class="myClass">3장~~~</p>
+    <div>내용....</div>
+
+    <hr>
+    <div id="myDiv">
+        <p>안녕하세요</p>
+        <p>반갑습니다</p>
+        <p>또만나용</p>
+    </div>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
