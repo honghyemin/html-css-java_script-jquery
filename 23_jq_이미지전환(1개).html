@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>이미지전환</title>
+     <!-- jQuery import 방식2(CDN 방식 : 인터넷에서 제공하는 문서를 가져다가 사용)-->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // prev, next : 버튼이 클릭되었을 때 처리
+    // prev : 이전 이미지 표시, next : 다음 이미지 표시
+    $(document).ready(function(){
+        var imgNum = 1;
+
+        // next버튼 클릭 : 다음 이미지 표시 (img태그 src값 변경)
+        $("#next").click(function(){
+            imgNum++;
+            
+             // 넘기다보면 존재하지 않는 파일명이 나옴(에러) > 그렇다면?
+            if(imgNum > 10) {
+                imgNum=1; // 첫번째 이미지로 변경
+            }
+            if(imgNum < 10){
+                imgNum= "0"+imgNum;
+            }           
+            // prop : 속성 변경
+            $("img").prop("src", "images/bimg"+imgNum + ".jpg");
+            console.log($("img").prop("src"));
+
+        });
+
+        // prev 버튼 클릭시 : 이전 미미지 표시
+        $("#prev").click(function(){
+            imgNum--;
+            if(imgNum<1) imgNum=10; // 마지막 이미지로 변경
+            imgNum = (imgNum < 10 ) ? "0" + imgNum : imgNum; 
+            
+
+            $("img").prop("src", "images/bimg"+imgNum + ".jpg");
+            console.log($("img").prop("src"));
+            
+
+        });
+
+    });
+    
+    
+   
+</script>
+<style>
+    div {
+        width: 320px;
+        margin: 0 auto;
+        position: relative;
+    }
+    div > a{
+        /* 위치 지정 - 부모요소 기준*/ 
+        position:absolute;
+        top: 150px; left: 20px;
+
+        /* 모양 지정*/
+        width: 50px; height :40px;
+        background-color: rgb(233, 233, 222);
+        border-radius: 30%;
+
+        /* 텍스트 설정 */
+        text-decoration: none; /*밑줄없애기*/
+        text-align: center; /*가로방향 가운데정렬*/
+        line-height: 40px; /*세로방향은 모양의 높이와 동일하게*/
+        font-family :'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: 500;
+        color: black;
+        
+    }
+    div > a:hover {
+        background-color: rgb(51, 48, 48);
+        font-size: 1.05em;
+        color : white;
+        
+    }
+
+    #next {left : 250px;}
+
+</style>
+</head>
+<body>
+    <div>
+        <img src="images/bimg01.jpg" alt="상품이미지">
+        <a id="prev" href="#">prev</a>
+        <a id="next" href="#">next</a>
+    </div>
+    
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>이미지전환</title>
+     <!-- jQuery import 방식2(CDN 방식 : 인터넷에서 제공하는 문서를 가져다가 사용)-->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // prev, next : 버튼이 클릭되었을 때 처리
+    // prev : 이전 이미지 표시, next : 다음 이미지 표시
+    // 배열에 저장된 이미지 파일명 사용해서 이미지 표시
+    //--------------------------------------
+    // 배열 데이터 입력 : ["avg.jpg", "bbb.png", "pb1234.jpg"]
+    var imgNames = new Array();
+    //imgNames = ["bimg01.jpg","bimg02.jpg", ...];
+    for (let i=1; i<=10; i++){
+        let imgNum = i;
+        if(imgNum < 10){
+            // i 그대로 사용하면 인덱스 두번째부터 들어감
+            imgNames[i-1] = "bimg0"+imgNum + ".jpg";
+        } else {
+            imgNames[i-1] = "bimg" + imgNum + ".jpg";
+        }
+    }
+
+
+    $(document).ready(function(){
+        // 배열에서 다음 이미지 파일명 가져와서 사용
+        var idx = 0;
+
+        // next : 다음이미지(배열에 있는)
+        $("#next").click(function(){
+            idx++;
+            if(idx >= imgNames.length){
+                idx=0;
+            }
+            $("img").prop("src", "images/"+imgNames[idx]);
+            console.log($("img").prop("src"));
+
+        });
+        // prev : 이전이미지(배열에 있는)
+        $("#prev").click(function(){
+            idx--;
+            if(idx < 0 ){
+                idx=imgNames.length-1; // 배열의 마지막 인덱스(데이터)
+            }
+            $("img").prop("src", "images/"+imgNames[idx]);
+
+        });
+    });
+    
+</script>
+<style>
+    div {
+        width: 320px;
+        margin: 0 auto;
+        position: relative;
+    }
+    div > a{
+        /* 위치 지정 - 부모요소 기준*/ 
+        position:absolute;
+        top: 150px; left: 20px;
+
+        /* 모양 지정*/
+        width: 50px; height :40px;
+        background-color: rgb(233, 233, 222);
+        border-radius: 30%;
+
+        /* 텍스트 설정 */
+        text-decoration: none; /*밑줄없애기*/
+        text-align: center; /*가로방향 가운데정렬*/
+        line-height: 40px; /*세로방향은 모양의 높이와 동일하게*/
+        font-family :'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: 500;
+        color: black;
+        
+    }
+    div > a:hover {
+        background-color: rgb(51, 48, 48);
+        font-size: 1.05em;
+        color : white;
+        
+    }
+
+    #next {left : 250px;}
+
+</style>
+</head>
+<body>
+    <div>
+        <img src="images/bimg01.jpg" alt="상품이미지">
+        <a id="prev" href="#">prev</a>
+        <a id="next" href="#">next</a>
+    </div>
+    
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>

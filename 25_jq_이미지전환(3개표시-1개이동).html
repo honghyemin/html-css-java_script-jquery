@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>이미지전환(3개표시-1개이동)</title>
+     <!-- jQuery import 방식2(CDN 방식 : 인터넷에서 제공하는 문서를 가져다가 사용)-->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // append(), prepend() 메소드 사용해서 이미지 이동
+    $(function(){
+        // next 버튼 : 맨 앞의 이미지를 맨 뒤로 보내기(append() 사용)
+        $("#next").click(function(){
+            // 찾을 수 있는 여럭지 방법
+            // var $first = $("#imgUl>li").eq(0);
+            // var $first = $("#imgUl>li:nth-child(1)");
+            // var $first = $("#imgUl>li:first-child"); 
+            // var $first = $("#imgUl>li:first");
+            var $first = $("#imgUl>li").first(); 
+
+            console.log("첫번째 li : " + $first.html());
+
+            $("#imgUl").append($first);
+        });
+        // (실습) prev 버튼 : 맨 뒤의 이미지를 맨 앞으로 보내기
+        $("#prev").click(function(){
+            var $last = $("#imgUl>li").last();
+            $("#imgUl").prepend($last);
+        })
+
+
+    });
+    
+   
+</script>
+<style>
+    * {margin : 0; padding: 0;}
+    #simgs {
+        width : 528px;
+        height: 176px;
+
+        border : 1px solid black;
+        position: relative;
+        left : 50px;
+        overflow: hidden; /* 박스 바깥으로 나간 이미지 안보이게 */
+        margin: auto;
+    }
+    #simgs > ul { list-style : none;}
+    #simgs > ul > li {float : left;} /*띄어서 좌측정렬 - inline:block 사용해도 됨*/
+    #simgs > a {
+        clear : both;
+        position : absolute;
+        width: 50px; height: 50px;
+        border-radius: 50%;
+        background-color: rgb(222, 240, 62);
+        opacity: 0.8;
+        
+        /*위치 지정해줌*/
+        top : 70px;
+        text-align: center;
+        line-height: 50px;
+        font-size : 1.3rem;
+        font-weight: bold;
+
+    }
+    #prev {left:0px;}
+    #next {right:0px;}
+</style>
+</head>
+<body>
+    <div id="simgs">
+        <ul id="imgUl">
+            <li><img src="images/simg01.jpg"></li>
+            <li><img src="images/simg02.jpg"></li>
+            <li><img src="images/simg03.jpg"></li>
+            <li><img src="images/simg04.jpg"></li>
+            <li><img src="images/simg05.jpg"></li>
+            <li><img src="images/simg06.jpg"></li>
+            <li><img src="images/simg07.jpg"></li>
+            <li><img src="images/simg08.jpg"></li>
+            <li><img src="images/simg09.jpg"></li>
+            <li><img src="images/simg10.jpg"></li>
+
+        </ul>
+        <a id="prev">&lt;&lt;</a>
+        <a id="next">&gt;&gt;</a>
+    </div>
+    
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
