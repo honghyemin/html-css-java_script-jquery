@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>키보드 이벤트</title>
+     <!-- jQuery import 방식2(CDN 방식 : 인터넷에서 제공하는 문서를 가져다가 사용)-->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // 키보드 관련 이벤트
+    // 발생 순서 : keydown, keypress, keyup
+    // keydown, keypress : 키가 눌린 상태에서 반복적으로 발생
+    // keyup : 한 번만 발생
+
+    $(function(){
+        $("#pwd2").keydown(function(){
+            console.log("> keydown 이벤트 발생");
+        });
+        $("#pwd2").keypress(function(){
+            console.log("-> keypress 이벤트 발생");
+        });
+        $("#pwd2").keyup(function(){ 
+            console.log("--> keyup 이벤트 발생");
+        });
+        //========================================
+        // 비밀번호 확인란에 키 입력되면 비밀번호와 비교 후 결과 출력
+        $("#pwd2").keyup(function(){
+            console.log("====> pwd2 keyup 이벤트 발생");
+            // pwd == pwd2 value 비교처리
+            if($("#pwd").val() == $("#pwd2").val()){
+                $("#myDiv").html("[ 암호가 일치합니다 ]");
+                fontColor();
+                
+               
+            } else {
+                $("#myDiv").html("[ 암호가 일치하지 않습니다 ]");
+
+            }
+        })
+
+
+
+    });
+    // 일치할 시 글자 색상 변경
+    function fontColor(){
+        $("#myDiv").css("color","red")
+                    .css("fontWeight", "bold");
+    }
+    
+   
+</script>
+</head>
+<body>
+    <h2>키보드 이벤트(> keydown, keypress, keyup)</h2>
+    <p> 비밀번호 : <input type="password" name="pwd" id="pwd"></p>
+    <p> 비밀번호확인 : <input type="password" name="pwd2" id="pwd2"></p>
+    <div id="myDiv">
+        암호를 입력하세요
+    </div>
+
+    
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>1
+</body>
+</html>
