@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>empty, remove</title>
+     <!-- jQuery import 방식2(CDN 방식 : 인터넷에서 제공하는 문서를 가져다가 사용)-->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        $("#empty").click(function(){
+            //$("#myDiv").empty();
+            $("#myDiv").html(""); // 요렇게 써줘도 동일한 결과
+        });
+        $("#remove").click(function(){
+            $("#myDiv").remove();
+        });
+
+        // append () : 기준(선택)태그에 자녀 태그 추가 - 삭제했을 경우는 추가 x(태그가 삭제되면 요소를 찾을 수 없음)
+        $("#append").click(function(){
+            $("#myDiv").append("<p>append 버튼으로 추가</p>");
+        });
+
+
+        // html() 이용해서 수정 : 기준(선택) 태그내의 html 요소 읽기, 쓰기
+        $("#html").click(function(){
+            var htmlTag = $("#myDiv").html();
+            
+            $("#myDiv").html( htmlTag+"<p>html() 사용 추가</p>" ); //append()
+        });
+
+
+    });
+   
+</script>
+<style>
+    #myDiv {border : 3px solid rgb(48, 48, 104); height:200px; padding-left: 10px;}
+    p {background-color: rgb(255, 189, 47);}
+</style>
+</head>
+<body>
+    <button id="empty">초기화(empty)</button>
+    <button id="remove">삭제(remove))</button>
+
+    <button id="append">추가(append)</button>
+    <button id="html">수정(html)</button>
+    <hr>
+    <div id="myDiv">
+        <p>Java</p>
+        <p>HTML</p>
+        <p>CSS</p>
+    </div>
+    <hr>
+    <h2>div 다음에 있는 h2태그</h2>
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
