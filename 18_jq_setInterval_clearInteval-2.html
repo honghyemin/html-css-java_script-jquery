@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>타이머객체</title>
+     <!-- jQuery import 방식2(CDN 방식 : 인터넷에서 제공하는 문서를 가져다가 사용)-->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Java, HTML, CSS, JavaScript, jQuery 문자열을 배열에 저장하고
+    // 1초마다 순차적으로 #myDiv위치에 출력
+
+    var subject = ['Java', 'HTML', 'CSS', 'JavaScript', 'jQuery'];
+    var index=0;
+    var timer = null;
+
+    $(document).ready(function(){
+        $("#startJQ").click(start);
+        $("#stopJQ").click(stop);
+
+      
+    });
+    function start(){
+        console.log("function start() 실행");
+        // 타이머객체가 없으면 생성
+        if (timer == null){
+            timer = setInterval(fnDisplaySubject, 1000);
+        }
+        console.log("timer : " + timer);
+
+    }
+    function fnDisplaySubject(){
+        $("#myDiv").html(subject[index++]);
+        if(index >= subject.length) index=0;
+    }
+
+    function stop(){
+        console.log("function stop() 실행");
+        clearInterval(timer);
+        timer = null;
+
+
+    };
+
+
+   
+</script>
+</head>
+<body>
+    <button id="startJQ">목록 보여주기(JQ 이벤트 연결)</button>
+    <button id="stopJQ">중지(JQ 이벤트 연결)</button>
+    <hr>
+    <p>Java, HTML, CSS, JavaScript, jQuery</p>
+    <hr>
+    <div id="myDiv">Java</div>
+    
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
