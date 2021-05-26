@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>롤링배너</title>
+     <!-- jQuery import 방식2(CDN 방식 : 인터넷에서 제공하는 문서를 가져다가 사용)-->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var $list = $("#banner"); // ul을 가지고 이동처리
+        // 이미지 복사 & 붙여넣기 : 맨 앞의 3개 이미지 맨 뒤에 복사하여 추가
+        $list.append($("#banner>li:lt(3)").clone()) // 인덱스번호 3번보다 작은 것을 뒤에 append함
+
+        var clickCnt = 0 ;
+        // 다음(next) 버튼 클릭에 대한 처리
+        $("#next").click(function(){
+            console.log("clickCnt : " + clickCnt);
+            if (clickCnt >= 5){
+                $list.css("margin-left", "0px");
+                clickCnt=0; // 배열의 처음으로 보낸다.
+            }
+            clickCnt++;
+            $list.animate({"margin-left":-200 * clickCnt + "px"}, 1000); // 클릭 횟수만큼 이동시켜주어야 한다.
+        });
+
+        // 이전(prev) 버튼 클릭에 대한 처리
+        
+        $("#prev").click(function(){
+            
+           
+            console.log("clickCnt : " + clickCnt);
+            if(clickCnt <= 0) { // 0보다 적거나 같을 때 이상 동작 발생
+                clickCnt=5; // 5개 크기만큼 이동시켜놓음
+                $list.css("margin-left", -200*clickCnt+"px");
+                
+                
+            }
+
+            
+            clickCnt--;
+            $list.animate({"margin-left":-200*clickCnt+"px"}, 1000);
+        });
+
+    });
+    
+   
+</script>
+<style>
+* {margin:0; padding: 0;}
+h2 {text-align: center;}
+#banner-wrap {
+    width : 600px;
+    border : 1px solid black;
+    padding : 20px;
+    margin : 50px auto;
+
+}
+
+#frame {
+    width : 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+#banner { width : 3000px;}
+    li img {width:200px;}
+    li {
+        list-style : none;
+        float: left;
+        width : 200px;
+    }
+    #banner-wrap p {clear : both; text-align:center;} 
+    #banner-wrap a {text-decoration: none;}
+
+</style>
+</head>
+<body>
+    <h2>롤링 슬라이드 배너 만들기</h2>
+    <hr>
+    <div id = "banner-wrap">
+        <div id="frame">
+                <ul id="banner">
+                    <li>
+                        <a href="#">
+                            <img src="images/pic_1.jpg"></a></li>
+                        </a>
+                    </li>
+                    
+                    <li><a href="#"><img src="images/pic_2.jpg"></a></li>
+                    <li><a href="#"><img src="images/pic_3.jpg"></a></li>
+                    <li><a href="#"><img src="images/pic_4.jpg"></a></li>
+                    <li><a href="#"><img src="images/pic_5.jpg"></a></li>
+                </ul>
+            <p>
+                <a href="#" id="prev">
+                    <img src="images/prev_btn.png">
+                </a>
+                <span>이동하기</span>
+                <a href="#" id="next">
+                    <img src="images/next_btn.png">
+                </a>
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
