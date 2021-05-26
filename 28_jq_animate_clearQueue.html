@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>animate취소</title>
+     <!-- jQuery import 방식2(CDN 방식 : 인터넷에서 제공하는 문서를 가져다가 사용)-->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        $("#run").click(function(){
+            $("h1").animate({"margin-left": "300px"}, 3000)
+                    .animate({"margin-left": "0px"},3000); // 다시 되돌아옴(다음동작은 큐에 저장되어있음)
+        });
+        // stop 처리 (한번)
+        $("#stop").click(function(){
+            $("h1").stop(); // 진행 중 동작 멈춤
+        });
+        // 두번 연속 stop 처리
+        $("#stopstop").click(function(){
+            $("h1").stop().stop(); // 두번 stop 처리
+        });
+        // clearQueue : 큐에 대기중인 작업 삭제(취소)
+        $("#clearQueue").click(function(){
+            $("h1").clearQueue(); 
+        });
+        // clearQueue + stop : 큐에 있던 것도 삭제하며 현재 진행중인 동작도 삭제
+        $("#clearQueuestop").click(function(){
+            $("h1").clearQueue().stop(); 
+        });
+        // stop처리 (한번) + 큐 작업 취소(대기중인 작업 취소) : 모든 움직임 중단
+        $("#stopTrue").click(function(){
+            $("h1").stop(true);
+        });
+
+    });
+    
+   
+</script>
+<style>
+    /* h1 {margin : 300px;} */
+</style>
+</head>
+<body>
+    <button id="run">run</button>
+    <button id="stop">stop</button>
+    <button id="stopstop">stopstop</button> <!--큐에서 실행되려하는것도 멈춘다-->
+    <button id="clearQueue">clearQueue</button> <!--큐에 있는 것만 삭제 -->
+    <button id="clearQueuestop">clearQueue+stop</button> <!--전체 삭제 -->
+    <button id="stopTrue">stopTrue</button>
+
+
+    <h1>abced</h1>
+    
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br>
+</body>
+</html>
